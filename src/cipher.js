@@ -1,57 +1,74 @@
-// FUNCION PARA CIFRAR
-  // RECIBE (numero de deplazamientos, string a cifrar)
-window.cipher = (n, string) => {
-  // result VA A CONTENER MI RESULTADO FINAL
+// ABCDEFGHIJKLMNOPQRSTUVWXYZ
+// HIJKLMNOPQRSTUVWXYZABCDEFG
+// OFFSET = 33
 
-  let result = ''
+// A = T
 
-  // RECORRO LA FRASE PARA CIFRAR
-  for (let i = 0; i < string.length; i++) {
-    // SI NO ES UNA LETRA EN MINUSCULAS O MAYUSCULAS
-    if (!(string.charCodeAt(i) >= 65 && string.charCodeAt(i) <= 90) &&  !(string.charCodeAt(i) >= 97 && string.charCodeAt(i) <= 122) ){
-      // SOLAMENTE LO AGREGO EL CARACTER SIN CIFRAR
-      result = result + string.charAt(i)
-    } else {
-      // PARA CIFRAR MAYUSCULAS (65 - 90)
-      if (string.charCodeAt(i) >= 65 && string.charCodeAt(i) <= 90) {
-        result += String.fromCharCode((((string.charCodeAt(i) - 65) + n) % 26) + 65)
-
-        // PARA CIFRAR MINUSCULAS (97 - 122)
-      } else if (string.charCodeAt(i) >= 97 && string.charCodeAt(i) <= 122) {
-        result += String.fromCharCode((((string.charCodeAt(i) - 122) + n) % 26) + 122)
-      }
+// ESTA FUNCION ME DECODIFICA UNA LENTRA SIN IMPORTAR SI ES MAYUSCULA O MINUSCULA
+function decodeKey(charKey, offset = cipher.offset) {
+    if (charKey == charKey.toLowerCase()) {
+      return Math.abs(((charKey.charCodeAt(0) - 97) - offset) % 26)
     }
-  }
-
-  // RETORNO EL RESULTADO
-  return result
+    if (charKey == charKey.toUpperCase()) {
+      return Math.abs(((charKey.charCodeAt(0) - 65) - offset) % 26)
+    }
 }
 
-// FUNCION PARA DECIFRAR
-  // RECIBE (numero de deplazamientos, string a decifrar)
-window.descipher = (n, string) => {
-  // result VA A CONTENER MI RESULTADO FINAL
+// ESTA FUNCION ME CODIFICA UNA LENTRA SIN IMPORTAR SI ES MAYUSCULA O MINUSCULA
+function encodeKey(charKey, offset = cipher.offset) {
+    if (charKey == charKey.toLowerCase()) {
+      return Math.abs(((charKey.charCodeAt(0) - 97) + offset) % 26)
+    }
+    if (charKey == charKey.toUpperCase()) {
+      return Math.abs(((charKey.charCodeAt(0) - 65) + offset) % 26)
+    }
+}
 
-  let result = ''
+// ESTA FUNCION VERIFICA SI EL CARACTER ES UNA LETRA MAYUSCULA O MINUSCULA
+function isALetter(charKey) {
+  let charCodeKey = charKey.charCodeAt(0)
+  return (charCodeKey >= 65 && charCodeKey <= 90) && (charCodeKey >= 97 && charCodeKey <= 122)
+}
 
-  // RECORRO LA FRASE PARA DECIFRAR
-  for (let i = 0; i < string.length; i++) {
-    // SI NO ES UNA LETRA EN MINUSCULAS O MAYUSCULAS
-    if (!(string.charCodeAt(i) >= 65 && string.charCodeAt(i) <= 90) &&  !(string.charCodeAt(i) >= 97 && string.charCodeAt(i) <= 122) ){
-      // SOLAMENTE LO AGREGO EL CARACTER SIN DECIFRAR
-      result = result + string.charAt(i)
-    } else {
-      // PARA DECIFRAR MAYUSCULAS (65 - 90)
-      if (string.charCodeAt(i) >= 65 && string.charCodeAt(i) <= 90) {
-        result += String.fromCharCode((((string.charCodeAt(i) - 65) - n) % 26) + 65)
+window.cipher = {
+  offset: 0,
+  encode: (offset, string) => {
+    // result VA A CONTENER MI RESULTADO FINAL
 
-        // PARA DECIFRAR MINUSCULAS (97 - 122)
-      } else if (string.charCodeAt(i) >= 97 && string.charCodeAt(i) <= 122) {
-        result += String.fromCharCode((((string.charCodeAt(i) - 122) - n) % 26) + 122)
+    let result = ''
+
+    // RECORRO LA FRASE PARA CIFRAR
+    for (let i = 0; i < string.length; i++) {
+      // SI NO ES UNA LETRA EN MINUSCULAS O MAYUSCULAS
+      if (!isALetter(string.charAt(i))) {
+        // SOLAMENTE LO AGREGO EL CARACTER SIN CIFRAR
+        result = result + string.charAt(i)
+      } else {
+          result += String.fromCharCode(encodeKey(string.charAt(i), offset))
       }
     }
-  }
 
-  // RETORNO EL RESULTADO
-  return result
+    // RETORNO EL RESULTADO
+    return result;
+  },
+  decode: (offset, string) => {
+    // result VA A CONTENER MI RESULTADO FINAL
+
+    let result = '';
+
+    // RECORRO LA FRASE PARA DECIFRAR
+    for (let i = 0; i < string.length; i++) {
+      // SI NO ES UNA LETRA EN MINUSCULAS O MAYUSCULAS
+      if (!isALetter(string.charAt(i))) {
+        // SOLAMENTE LO AGREGO EL CARACTER SIN DECIFRAR
+        result = result + string.charAt(i)
+      } else {
+        result += String.fromCharCode(decodeKey(string.charAt(i), offset))
+      }
+    }
+
+    // RETORNO EL RESULTADO
+    return result;
+  },
+  createCipherWithOffset: () => {}
 }

@@ -6,24 +6,34 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="webSite" >
       <h1 id="CaesarCipher">Cifrado César</h1>
-      <hr/>
+      <!-- <hr/> -->
     <div>
-      <label for="shift">Número de desplazamientos</label>
       <br />
-      <input id="shift" type="number" name="shift" value="3" />
+      <div class="image-cipher">
+        <center><p  id="llave">
+            <img src="../img/llave.jpg" />
+        </p></center>
+      </div>
+      <div id="input-offset">
+        <label id="shiftNumber" for="shift">Número de desplazamientos</label>
+        <br />
+        <input class="input-style" id="shift" type="number" name="shift" value="3" />
+      </div>
     </div>
-    <form id="formCipher">
-      <label id="wordE" for ="nombre">Ingrese Frase a encriptar: </br></label>
-      <input id="wordToEncrypt" type = "text" placeholder="Ingresa Palabra" size="40"/>
-      <button type="submit">"Encriptar"</button>
-    </form>
-    </br>
-    <form id="formDecipher">
-      <label id="wordD" for="nombre">Frase a Desencriptar </br> </label>
-      <input id="wordToDeCrypt" type="text" size="40"/>
-      <button type="submit">"Desencriptar"</button>
-    </form>
+      <form id="formCipher">
+        <label id="wordE" for ="nombre">Ingrese Frase a encriptar: </br></label>
+        <input class="input-style" id="wordToEncrypt" type = "text" placeholder="Ingresa Palabra" size="40"/><br>
+        <button id="buttonE" type="submit">"Encriptar"</button>
+      </form>
+      </br>
+      <form id="formDecipher">
+        <label id="wordD" for="nombre">Frase a Desencriptar: </br> </label>
+        <input class="input-style" id="wordToDeCrypt" type="text" size="40"/><br>
+        <button id="buttonD" type="submit">"Desencriptar"</button>
+      </form>
+  </div>
     <div id="root"></div>
     <script src="cipher.js"></script>
     <script src="index.js"></script>

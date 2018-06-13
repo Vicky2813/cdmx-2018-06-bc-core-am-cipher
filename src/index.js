@@ -21,13 +21,13 @@ formCipher.addEventListener('submit', (event) => {
   event.preventDefault();
 
   // OBTENGO EL NUMERO DESPLAZAMIENTOS DEL INPUT
-  const n = parseInt(shiftNumber.value);
+  const offset = parseInt(shiftNumber.value);
 
   // OBTENGO LA FRASE A ENCRIPTAR
   const phraseToEncrypt = inputWordToEncrypt.value;
 
   // LLAMO A LA FUNCION GLOBAL "cipher" EN window PARA ENCRIPTAR LA FRASE
-  const result = window.cipher(n, phraseToEncrypt);
+  const result = cipher.encode(offset, phraseToEncrypt);
 
   // COLOCO EL RESULTADO DEL CIFRADO EN EL INPUT PARA DESCIFRAR
   inputWordToDecrypt.value = result
@@ -39,13 +39,13 @@ formDecipher.addEventListener('submit', (event) => {
   event.preventDefault();
 
   // OBTENGO EL NUMERO DE DESPLAZAMIENTOS A APLICAR
-  const n = parseInt(shiftNumber.value);
+  const offset = parseInt(shiftNumber.value);
 
   // OBTENGO LA FRASE A DESENCRIPTAR
   const phraseToDecrypt = inputWordToDecrypt.value;
 
   // LLAMO A LA FUNCION GLOBAL "decipher" EN window PARA DESENCRIPTAR
-  const result = window.descipher(n, phraseToDecrypt)
+  const result = cipher.decode(offset, phraseToDecrypt)
 
   // COLOCO EL RESULTADO EN EL INPUT DE CRIFRAR
   inputWordToEncrypt.value = result
