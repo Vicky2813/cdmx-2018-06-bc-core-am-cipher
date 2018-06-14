@@ -30,8 +30,22 @@ body {
   filter: grayscale(80%);
 }
 
+#paragraph {
+  padding: 1em;
+  font-color: #784212;
+  font: 30px "Comic Sans MS", cursive, solid;
+  text-align:center;
+  color: #784212;
+}
+
+.newStyle {
+  font: 30px "Comic Sans MS", cursive, solid;
+  color: #E6B0AA;
+  filter: invert(0.9);
+}
+
 #shift {
-  border-color:  #cc9900;
+  border-color: #cc9900;
   font-size: 18px;
   border-width: inset;
   padding: 1em;
