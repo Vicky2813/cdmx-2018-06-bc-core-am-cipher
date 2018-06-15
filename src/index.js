@@ -30,7 +30,7 @@ formCipher.addEventListener('submit', (event) => {
   const result = cipher.encode(offset, phraseToEncrypt);
 
   // COLOCO EL RESULTADO DEL CIFRADO EN EL INPUT PARA DESCIFRAR
-  inputWordToDecrypt.value = result
+  inputWordToDecrypt.value = result;
 });
 
 // EVENTO DE SUBMIT PARA EL FORMULARIO DE DECIFRADO
@@ -45,8 +45,8 @@ formDecipher.addEventListener('submit', (event) => {
   const phraseToDecrypt = inputWordToDecrypt.value;
 
   // LLAMO A LA FUNCION GLOBAL "decipher" EN window PARA DESENCRIPTAR
-  const result = cipher.decode(offset, phraseToDecrypt)
+  const result = cipher.decode(offset, phraseToDecrypt);
 
   // COLOCO EL RESULTADO EN EL INPUT DE CRIFRAR
-  inputWordToEncrypt.value = result
+  inputWordToEncrypt.value = result;
 });
