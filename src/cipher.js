@@ -70,5 +70,47 @@ window.cipher = {
     // RETORNO EL RESULTADO
     return result;
   },
-  createCipherWithOffset: () => {}
+  createCipherWithOffset: () => {
+    return {
+      offset: 33,
+      encode: (offset, string) => {
+        // result VA A CONTENER MI RESULTADO FINAL
+
+        let result = '';
+
+        // RECORRO LA FRASE PARA CIFRAR
+        for (let i = 0; i < string.length; i++) {
+          // SI NO ES UNA LETRA EN MINUSCULAS O MAYUSCULAS
+          if (!isALetter(string.charAt(i))) {
+            // SOLAMENTE LO AGREGO EL CARACTER SIN CIFRAR
+            result = result + string.charAt(i);
+          } else {
+              result += encodeKey(string.charAt(i), offset);
+          }
+        }
+
+        // RETORNO EL RESULTADO
+        return result;
+      },
+      decode: (offset, string) => {
+        // result VA A CONTENER MI RESULTADO FINAL
+
+        let result = '';
+
+        // RECORRO LA FRASE PARA DECIFRAR
+        for (let i = 0; i < string.length; i++) {
+          // SI NO ES UNA LETRA EN MINUSCULAS O MAYUSCULAS
+          if (!isALetter(string.charAt(i))) {
+            // SOLAMENTE LO AGREGO EL CARACTER SIN DECIFRAR
+            result = result + string.charAt(i);
+          } else {
+            result += decodeKey(string.charAt(i), offset);
+          }
+        }
+
+        // RETORNO EL RESULTADO
+        return result;
+      }
+    }
+  }
 };
