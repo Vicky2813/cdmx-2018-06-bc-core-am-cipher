@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cifrado Cesar V2</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">Cifrado César</h1>
+    <div class="row">
+      <div class="image-center">
+        <figure class="figure image-container">
+            <img class="rounded img-fluid mx-auto" src="../img/llave.jpg" />
+        </figure>
+      </div>
+      <form id="formCipher" class="form-control">
+        <p class="text-center">
+          El objetivo del cifrado César es mover cada letra un determinado número de espacios en el alfabeto.</br>
+          Encripta o Desencripta una palabra o frase con un número de desplazamientos que desees. </br> 
+          <span class="newStyle">NOTA:</span> Solo se permitiran letras mayúsculas y minúsculas.
+        </p>
+        <div class="form-group">
+          <label for="offset">Número de desplazamientos</label>
+          <input class="form-control" id="shift" type="number" name="shift" value="33" />
+        </div>
+        <div class="form-group">
+          <label for="operation">¿Que deseas hacer?</label>
+          <select class="form-control" name="operation" id="operation">
+            <option value="encode" selected>Cifrar</option>
+            <option value="decode">Descifrar</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="text"></label>
+          <textarea class="form-control" name="text" id="text" cols="30" rows="2" placeholder="Texto a cifrar o decifrar..."></textarea>
+        </div>
+        <div class="form-group">
+          <button id="btnTask" type="submit" class="btn btn-success">Cifrar</button>
+        </div>
+        <div class="form-group">
+          <p class="text-center"><u>Resultado</u></p>
+          <p id="result" class="text-center"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="cipher.js"></script>
+  <script src="index2.js"></script>
+</body>
+</html>

@@ -170,5 +170,8 @@ En este proyecto se encuentran realizados dos interfaces, las cuales realizan
 la misma funcionalidad: Una desarrollada con css vanilla y la otra realizada
 con bootstrap en su versión 4.
 
+Se conservaron ambas versiones, creando una interfaz que te permita seleccionar
+que versión quieres utilizar.
+
 
 ***
