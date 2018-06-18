@@ -2,16 +2,19 @@
 
 ## Preámbulo
 
-Está próxima la fecha del cumpleaños de tu flacx (novix) y estás organizando una
-fiesta sorpresa. Para organizar la fiesta has creado un grupo de Whatsapp junto
-con amigos y familiares.
+La famila Malandrucco Linarez son un grupo familiar muy grande , esta el señor  
+Alexander y su esposa Martha, tienen 4 maravillosos hijos (Ana,Maria,Pedro y
+Rafael), ellos son muy felices pero su padre por ser militar y estar en el
+ARMY lo mandaron durante un año para un entrenamiento intensivo en una zona
+desconocida por su familia. AL pasar el año su padre se comunico con su hijo
+mayor Pedro y le informo que quería organizar una fiesta sorpresa para su esposa
+ya que llegaría el mismo día de su 30 aniversario.
 
-Un gran problema es que pones tu alarma para levantarte temprano, sin embargo
-(como supondrás) eso nunca sucede y tu flacx es quien termina apagando la alarma
-y "de casualidad" revisando tus mensajes. Debido a que es algo sorpresa, decides
-crear una aplicación que te permita enviar mensajes cifrados y que las demás
-personas (partícipes de la fiesta) puedan tener una interfaz para
-descifrarlo. Así que ahora te toca aplicar tus superpoderes 😎
+Un gran problema es que la madre siempre esta en casa, y al estar sola cuidando
+de sus hijos es muy sobreprotectora, debido a esto se la pasa revisando los
+mensajes de sus hijos para saber en que andan. Pedro al saber esto, decide
+crear una aplicación que le permita enviar mensajes cifrados a su padre y a sus
+hermanos y que ellos puedan tener una interfaz para descifrarlo.
 
 ## Introducción
 
@@ -39,25 +42,9 @@ sistema ROT13.
 
 ## Objetivos
 
-El objetivo principal de aprendizaje de este proyecto es tener tu primera
-experiencia construyendo una aplicación web usando tus conocimientos de **User Experience Designer** y de **JavaScript developer**. Esto incluye diseñar un producto
-_pensando en los usuarios_, construir una interfaz, escuchar eventos básicos del
-DOM, escribir lógica para llevar a cabo el cifado/descifrado, tests unitarios
-básicos para comprobar (y documentar) dicha lógica, y finalmente manipulación
-del DOM para mostrar (escribir) los resultados.
+* El objetivo principal es construir una aplicación web que contenga una buena
+experiencia de usuario, permitiendo al usuario cifrar y descifrar mensajes.
 
-Para completar el proyecto tendrás que familiarizarte con conceptos como
-[valores, tipos, variables](https://github.com/Laboratoria/curricula-js/tree/v2.x/topics/javascript/01-basics),
-[control de flujo](https://github.com/Laboratoria/curricula-js/tree/v2.x/topics/javascript/02-flow-control)
-y [tests unitarios](https://github.com/Laboratoria/curricula-js/tree/v2.x/topics/testing).
-
-Esperamos que en este proyecto puedas _pensar en el usuario_, entendiendo quién y cuál(es) es su nececidad. La creación de este producto va a resolver esa(s) necesidad(es) y qué mejor que hacerlo de la mejor forma. Que sea totalmente lo que nuestro usuario necesita.
-
-También es importante que puedas organizarte teniendo en cuenta el tiempo y los recursos
-disponibles. Es la primera vez que evaluaremos tus habilidades blandas, pero debes
-considerar que son habilidades que probablemente ya has utilizado en distintas
-experiencias de tu vida. Lo importante es que realices el proyecto de manera
-integral.
 
 ## Consideraciones generales
 
@@ -113,25 +100,23 @@ usaremos las recomendaciones _por defecto_ de tanto `eslint` como `htmlhint`.
 ## Parte obligatoria
 
 ### Definición del producto
+* quiénes son los principales usuarios de producto: Todas aquellas personas
+que necesiten o deseen comunicarse con mensajes encriptados y desencriptados
+para algún tipo de evento en particular como en el preámbulo que se lee al
+principio del README.
 
-En el `README.md` cuéntanos cómo pensaste en los usuarios al desarrollar tu
-producto y cuál fue tu proceso para definir el producto final a nivel de
-experiencia y de interfaz.
+* cuáles son los objetivos de estos usuarios en relación con el producto: los
+objetivos del usuario es poder encriptar y desencriptar mensajes, logrando
+un fin en común.
 
-* quiénes son los principales usuarios de producto
-* cuáles son los objetivos de estos usuarios en relación con el producto
 * cómo crees que el producto que estás creando les está resolviendo sus
-  problemas
+  problemas: Les esta permitiendo a todos aquellos usuarios interesados en cifrar
+   y descifrar mensajes que pudo haber enviado a través de una plataforma.
 
-Para llevar tus conocimientos a otro nivel en UX:
-
-* puedes investigar y aplicar algunas
-de las técnicas y herramientas relacionadas al proceso de diseño como
-entrevistas y testeos con usuarios de tus sketches o prototipos.
 
 ### UI
 
-La interfaz debe permitir al usuario:
+La interfaz le permite al usuario:
 
 * elegir un `offset` indicando cuántas posiciones queremos que el cifrado
   desplace cada caracter
@@ -140,28 +125,25 @@ La interfaz debe permitir al usuario:
 * insertar un mensaje (texto) a descifrar
 * ver el resultado del mensaje descifrado
 
-Estos puntos lejos de ser funcionalidades, en términos de UI debes pensarlos como elementos que estalecer la interacción con tu usuario.
+### Cómo instalar la aplicación (offline):
+
+- Debes descargar el proyecto de [Cifrado César](https://github.com/Vicky2813/cdmx-2018-06-bc-core-am-cipher/archive/master.zip)
+- Descomprimir el zip ´cdmx-2018-06-bc-core-am-cipher-master.zip´
+- Ejecutar el proyecto accediendo a ´src/index´
+
+### Ejecutar version online:
+- [Cifrado César online](https://vicky2813.github.io/cdmx-2018-06-bc-core-am-cipher/src/)
+
+
+### Cómo usar:
+Al entrar a la aplicación podemos apreciar una interfaz que contiene tres input
 
 ### Scripts / Archivos
 
 * `README.md`: debe explicar cómo descargar, instalar y ejecutar la aplicación
   así como una introducción a la aplicación, su funcionalidad y decisiones de
   diseño que tomaron.
-* `src/index.html`: este es el punto de entrada a tu aplicación. Este archivo
-  debe contener to _markup_ (HTML) e incluir el CSS y JavaScript necesario.
-* `src/cipher.js`: acá debes implementar el objeto cipher, el cual debe estar
-  _exportado_ en el objeto global (`window`). Este objeto (`cipher`) debe
-  contener dos métodos:
-  - `cipher.encode(offset, string)`: `offset` es el número de posiciones que
-    queremos mover a la derecha en el alfabeto y `string` el mensaje (texto)
-    que queremos cifrar.
-  - `cipher.decode(offset, string)`: `offset` es el número de posiciones que
-    queremos mover a la izquierda en el alfabeto y `string` el mensaje
-    (texto) que queremos decifrar.
-* `src/index.js`: acá debes escuchar eventos del DOM, invocar `cipher.encode()`
-  o `cipher.decode()` según sea necesario y actualizar el resultado en la UI.
-* `test/cipher.spec.js`: este archivo contiene algunos tests de ejemplo y acá
-  tendrás que implementar los tests para `cipher.encode()` y `cipher.decode()`.
+
 
 ## Hacker edition
 

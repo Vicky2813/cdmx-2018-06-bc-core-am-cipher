@@ -1,8 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
   background: #EDBB99;
+  font-family: 'Roboto', sans-serif;
+}
+
+.cipher-result {
+  border: #186a3b dashed 1px;
+  padding: 1em;
+  font-size: 1.5em;
+  background-color: white;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#input-operation label {
+  font-size: 2em;
+  color: #7D6608;
+
+}
+
+.cipher-button {
+  background-color: #D5F5E3;
+  font-size: 20px;
+  padding: 1em;
+  font-weight: bold;
+  margin: 1em;
+  border-radius: 7px;
+  box-shadow: 7px 7px 7px -7px;
+}
+
+.cipher-image {
+  width: 468px;
+  border-radius: 50%;
 }
 
 #input-offset {
+  text-align: center;
+}
+
+#input-operation {
   text-align: center;
 }
 
@@ -14,12 +52,12 @@ body {
 }
 
 #CaesarCipher {
-  font-color: #7D6608;
-  font: 50px "Comic Sans MS", cursive, solid;
-  text-align:center;
-  /* font-size: 50px; */
   color: #7D6608;
-  padding: 1em;
+  text-align: center;
+  padding: 0.5em;
+  margin: 0;
+  font-weight: bold;
+  font-size: 3em;
 }
 
 #llave {
@@ -32,14 +70,13 @@ body {
 
 #paragraph {
   padding: 1em;
-  font-color: #784212;
-  font: 30px "Comic Sans MS", cursive, solid;
+
   text-align:center;
   color: #784212;
 }
 
 .newStyle {
-  font: 30px "Comic Sans MS", cursive, solid;
+
   color: #E6B0AA;
   filter: invert(0.9);
 }
@@ -47,18 +84,17 @@ body {
 #shift {
   border-color: #cc9900;
   font-size: 18px;
-  border-width: inset;
   padding: 1em;
 }
 
 #wordE {
   color: #7D6608;
-  font: 37px "Comic Sans MS", cursive, solid;
+
 }
 
 #wordD {
   color: #7D6608;
-  font: 37px "Comic Sans MS", cursive, solid;
+
 }
 
 #shiftNumber {
@@ -68,44 +104,27 @@ body {
 
 #formCipher {
   text-align: center;
-  padding: 3em;
-  border-width: inset;
   border-color: #E67E22;
 }
 
 #formDecipher {
+  display: none;
   text-align: center;
-  padding: 10em;
-  border-width: inset;
   border-color: #E67E22;
 }
 
 #wordToEncrypt {
-  border-color:  #cc9900;
+  border-color: #cc9900;
   font-style: italic;
-  font-size: 20px;
-  padding: 4em;
+  font-size: 1em;
+  padding: 2em;
 }
 
 #wordToDeCrypt {
   border-color: #cc9900;
   font-style: italic;
-  font-size: 20px;
-  padding: 4em;
-}
-
-#buttonE {
-  background-color: #D5F5E3;
-  font-size: 18px;
-  padding: 1em;
-  font-weight: bold;
-
-}
-
- #buttonE:hover {
-  background: #186A3B;
-  color: #ABEBC6;
-  box-shadow: inset 0 0 0 3px #3a7999;
+  font-size: 1em;
+  padding: 2em;
 }
 
  #buttonD {

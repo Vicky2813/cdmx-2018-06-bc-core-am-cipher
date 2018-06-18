@@ -1,41 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
     <title>Caesar Cipher</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="webSite" >
       <h1 id="CaesarCipher">Cifrado César</h1>
-      <!-- <hr/> -->
-    <div>
-      <br />
-      <div class="image-cipher">
-        <center><p  id="llave">
-            <img src="../img/llave.jpg" />
-        </p></center>
-      </div>
-      <p id="paragraph">El objetivo del cifrado César es mover cada letra un determinado número de espacios en el alfabeto. </br> Encripta o Desencripta una palabra o frase con un número de desplazamientos que desees. </br> <span class="newStyle">NOTA:</span> Solo se permitiran letras mayúsculas y minúsculas.</p>
-      <div id="input-offset">
-        <label id="shiftNumber" for="shift">Número de desplazamientos</label>
+      <div>
         <br />
-        <input class="input-style" id="shift" type="number" name="shift" value="33" />
+        <div class="image-cipher">
+          <center>
+            <p  id="llave">
+              <img class="cipher-image" src="../img/llave.jpg" />
+            </p>
+          </center>
+        </div>
+        <p id="paragraph">El objetivo del cifrado César es mover cada letra un determinado número de espacios en el alfabeto. </br> Encripta o Desencripta una palabra o frase con un número de desplazamientos que desees. </br> <span class="newStyle">NOTA:</span> Solo se permitiran letras mayúsculas y minúsculas.</p>
+        <div id="input-offset">
+          <label id="shiftNumber" for="shift">Número de desplazamientos</label>
+          <br />
+          <input class="input-style" id="shift" type="number" name="shift" value="33" />
+        </div>
       </div>
-    </div>
+      <div id="input-operation">
+        <label for="operation">Operación</label>
+        <select class="cipher-button" name="operation" id="operation">
+          <option value="encode" selected>Cifrar</option>
+          <option value="decode">Decifrar</option>
+        </select>
+      </div>
       <form id="formCipher">
         <label id="wordE" for ="nombre">Ingrese Frase a encriptar: </br></label>
-        <input class="input-style" id="wordToEncrypt" type = "text" placeholder="Ingresa Palabra" size="40"/><br>
-        <button id="buttonE" type="submit">"Encriptar"</button>
+        <input class="input-style" id="wordToEncrypt" type = "text" placeholder="Ingresa Palabra" size="40" maxlength="280" /><br>
+        <button class="cipher-button" type="submit">"Encriptar"</button>
       </form>
       </br>
       <form id="formDecipher">
         <label id="wordD" for="nombre">Frase a Desencriptar: </br> </label>
-        <input class="input-style" id="wordToDeCrypt" type="text" size="40"/><br>
-        <button id="buttonD" type="submit">"Desencriptar"</button>
+        <input class="input-style" id="wordToDeCrypt" type="text" size="40" maxlength="280" /><br>
+        <button class="cipher-button" type="submit">"Desencriptar"</button>
       </form>
-  </div>
-    <div id="root"></div>
+      <div class="cipher-result">
+        <p id="result"></p>
+      </div>
+    </div>
     <script src="cipher.js"></script>
     <script src="index.js"></script>
   </body>
